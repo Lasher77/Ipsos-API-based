@@ -1,0 +1,25 @@
+### Health
+GET http://localhost:8000/health
+
+### Meta
+GET http://localhost:8000/meta
+
+### Segment
+POST http://localhost:8000/segment?include_features=true&pretty_scores=true
+Content-Type: application/json
+
+{
+  "Status_ Mitgliedschaft": "Mitglied beim Mittelstand. BVMW",
+  "Wirtschaftsregion": "Bayern Nord"
+}
+
+### Batch
+POST http://localhost:8000/segment/batch?pretty_scores=true
+Content-Type: application/json
+
+{
+  "items": [
+    {"Status_ Mitgliedschaft": "Mitglied beim Mittelstand. BVMW"},
+    {"Wirtschaftsregion": "Bayern Nord"}
+  ]
+}
