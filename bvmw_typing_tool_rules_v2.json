@@ -1,0 +1,1248 @@
+{
+  "model": "BVMW Typing Tool v2",
+  "segments": [
+    {
+      "id": 1,
+      "name": "Aufstrebende Wissensnetzwerker"
+    },
+    {
+      "id": 2,
+      "name": "Verbandsaktive Fachnetzwerker"
+    },
+    {
+      "id": 3,
+      "name": "Zukunftsdenkende (Jung) Innovatoren"
+    },
+    {
+      "id": 4,
+      "name": "Marketing- und Vertriebsnetzwerker"
+    },
+    {
+      "id": 5,
+      "name": "Repräsentationsfokussierte Großbetriebe"
+    }
+  ],
+  "intercepts": {
+    "seg1": -878.6150096415676,
+    "seg2": -875.3560561047075,
+    "seg3": -875.738715754476,
+    "seg4": -869.8202886310147,
+    "seg5": -883.0460706663283
+  },
+  "type_thresholds": {
+    "core_gt": 1.0,
+    "mid_gt": 0.5,
+    "mid_le": 1.0
+  },
+  "rules": [
+    {
+      "variable": "Dichotomic_MitgliedStatus_1",
+      "crm_field": "Status_ Mitgliedschaft",
+      "match_value": "Mitglied beim Mittelstand. BVMW",
+      "label": "Mitglied beim Mittelstand. BVMW",
+      "coefficients": {
+        "seg1": 15.892353715493408,
+        "seg2": 15.380307691900764,
+        "seg3": 15.464753391952206,
+        "seg4": 14.58857941950556,
+        "seg5": 14.76520638917749
+      }
+    },
+    {
+      "variable": "Dichotomic_MitgliedStatus_2",
+      "crm_field": "Status_ Mitgliedschaft",
+      "match_value": "Mitglied in Kündigung beim Mittelstand. BVMW",
+      "label": "Mitglied in Kündigung beim Mittelstand. BVMW",
+      "coefficients": {
+        "seg1": 8.7175212344979,
+        "seg2": 10.196837480051792,
+        "seg3": 10.616671050236478,
+        "seg4": 10.102296003693285,
+        "seg5": 8.024094914367279
+      }
+    },
+    {
+      "variable": "Dichotomic_MitgliedStatus_3",
+      "crm_field": "Status_ Mitgliedschaft",
+      "match_value": "Ehemaliges Mitglied Mittelstand. BVMW",
+      "label": "Ehemaliges Mitglied Mittelstand. BVMW",
+      "coefficients": {
+        "seg1": 63.969034904345975,
+        "seg2": 63.53388835239086,
+        "seg3": 64.82512715415176,
+        "seg4": 64.64203820145451,
+        "seg5": 64.68006340330899
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_1",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Bayern Nord",
+      "label": "Bayern Nord",
+      "coefficients": {
+        "seg1": 1069.489017212586,
+        "seg2": 1069.8370204329792,
+        "seg3": 1072.9041640942858,
+        "seg4": 1062.5520005466115,
+        "seg5": 1073.3443441244272
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_2",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Bayern Süd",
+      "label": "Bayern Süd",
+      "coefficients": {
+        "seg1": 1076.9137615096204,
+        "seg2": 1077.7094118685636,
+        "seg3": 1081.344869738678,
+        "seg4": 1070.6726236567067,
+        "seg5": 1079.2162705602818
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_3",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Berlin / Brandenburg Nord",
+      "label": "Berlin / Brandenburg Nord",
+      "coefficients": {
+        "seg1": 1270.6010242150908,
+        "seg2": 1264.258533476941,
+        "seg3": 1268.5427719114268,
+        "seg4": 1262.2522401053288,
+        "seg5": 1273.4509205428706
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_4",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Berlin / Brandenburg Süd-West",
+      "label": "Berlin / Brandenburg Süd-West",
+      "coefficients": {
+        "seg1": 1272.7750048344894,
+        "seg2": 1267.4826321438948,
+        "seg3": 1275.029061628307,
+        "seg4": 1265.4556006708885,
+        "seg5": 1277.0704242367485
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_5",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Brandenburg Süd-Ost",
+      "label": "Brandenburg Süd-Ost",
+      "coefficients": {
+        "seg1": 1262.6133483418548,
+        "seg2": 1257.187154955907,
+        "seg3": 1264.9006757018299,
+        "seg4": 1256.9098857983415,
+        "seg5": 1266.5071423602944
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_6",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Bremen Oldenburg",
+      "label": "Bremen Oldenburg",
+      "coefficients": {
+        "seg1": 1087.15554253733,
+        "seg2": 1085.2892357735986,
+        "seg3": 1088.5634057892942,
+        "seg4": 1080.3383953109485,
+        "seg5": 1085.536550573922
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_7",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Bundeszentrale",
+      "label": "Bundeszentrale",
+      "coefficients": {
+        "seg1": 1126.2821996701132,
+        "seg2": 1127.2467732683238,
+        "seg3": 1131.7412189006523,
+        "seg4": 1125.6372038212605,
+        "seg5": 1129.2811654356688
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_8",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "BWS",
+      "label": "BWS",
+      "coefficients": {
+        "seg1": 1084.8605151634088,
+        "seg2": 1086.7722735821708,
+        "seg3": 1088.1320392684106,
+        "seg4": 1077.9564733732084,
+        "seg5": 1091.416452490047
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_9",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "BWS / LWS",
+      "label": "BWS / LWS",
+      "coefficients": {
+        "seg1": 1049.1559274285776,
+        "seg2": 1050.7035484105397,
+        "seg3": 1056.7220300175238,
+        "seg4": 1041.8844820528418,
+        "seg5": 1051.6849655077972
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_10",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Chemnitz",
+      "label": "Chemnitz",
+      "coefficients": {
+        "seg1": 1147.67952574952,
+        "seg2": 1145.9673870140807,
+        "seg3": 1151.2603839645183,
+        "seg4": 1142.3266348649229,
+        "seg5": 1154.9732034532767
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_11",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Dresden",
+      "label": "Dresden",
+      "coefficients": {
+        "seg1": 1152.471629706268,
+        "seg2": 1149.0533033255945,
+        "seg3": 1155.2030847238939,
+        "seg4": 1146.6477818074936,
+        "seg5": 1156.7409559722582
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_12",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Düsseldorf",
+      "label": "Düsseldorf",
+      "coefficients": {
+        "seg1": 1095.2258707946442,
+        "seg2": 1096.1901582682008,
+        "seg3": 1098.8238487059007,
+        "seg4": 1088.051136844119,
+        "seg5": 1097.8491319209008
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_13",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Hamburg",
+      "label": "Hamburg",
+      "coefficients": {
+        "seg1": 1092.9414972620852,
+        "seg2": 1089.523130581687,
+        "seg3": 1092.5025822156747,
+        "seg4": 1085.242905439695,
+        "seg5": 1091.0273200527417
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_14",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Hannover",
+      "label": "Hannover",
+      "coefficients": {
+        "seg1": 1087.410220010472,
+        "seg2": 1091.7556911890408,
+        "seg3": 1093.6213719738234,
+        "seg4": 1086.267925665511,
+        "seg5": 1089.819671216857
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_15",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Köln/-Rhein-Erft-Kreis",
+      "label": "Köln/-Rhein-Erft-Kreis",
+      "coefficients": {
+        "seg1": 1087.8966921698743,
+        "seg2": 1091.2176539010522,
+        "seg3": 1091.25841392974,
+        "seg4": 1079.8281096261646,
+        "seg5": 1090.3049844884777
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_16",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Leipzig",
+      "label": "Leipzig",
+      "coefficients": {
+        "seg1": 1159.5780130299818,
+        "seg2": 1156.512030560965,
+        "seg3": 1162.634714528551,
+        "seg4": 1155.4094628574244,
+        "seg5": 1163.6397328175683
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_17",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Mainfranken",
+      "label": "Mainfranken",
+      "coefficients": {
+        "seg1": 1064.2890190507687,
+        "seg2": 1068.3269086285784,
+        "seg3": 1069.1565157695293,
+        "seg4": 1060.4536551856354,
+        "seg5": 1067.84935493343
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_18",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Mecklenburg-Vorpommern",
+      "label": "Mecklenburg-Vorpommern",
+      "coefficients": {
+        "seg1": 1105.7150437935757,
+        "seg2": 1106.1163341955237,
+        "seg3": 1109.7653411392394,
+        "seg4": 1102.1225152277748,
+        "seg5": 1113.630250439949
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_19",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Münsterland / Ostwestfalen-Lippe",
+      "label": "Münsterland / Ostwestfalen-Lippe",
+      "coefficients": {
+        "seg1": 1091.625503573855,
+        "seg2": 1091.352864188433,
+        "seg3": 1093.8606240791905,
+        "seg4": 1084.8238901868053,
+        "seg5": 1092.7618113715228
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_20",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Niedersachsen West",
+      "label": "Niedersachsen West",
+      "coefficients": {
+        "seg1": 1089.1493249045534,
+        "seg2": 1090.4869272745864,
+        "seg3": 1093.5159411341174,
+        "seg4": 1086.1907132869571,
+        "seg5": 1090.3849588608618
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_21",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Nordbaden-Rhein-Neckar",
+      "label": "Nordbaden-Rhein-Neckar",
+      "coefficients": {
+        "seg1": 1050.720407508079,
+        "seg2": 1051.8217227565494,
+        "seg3": 1055.06019204783,
+        "seg4": 1049.2182028387565,
+        "seg5": 1055.4540038912714
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_22",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Nordhessen",
+      "label": "Nordhessen",
+      "coefficients": {
+        "seg1": 1046.5878904873882,
+        "seg2": 1047.453062209486,
+        "seg3": 1049.9552949250403,
+        "seg4": 1040.4763244678725,
+        "seg5": 1050.3744072968543
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_23",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "NRW Südwest",
+      "label": "NRW Südwest",
+      "coefficients": {
+        "seg1": 1090.4454657447918,
+        "seg2": 1091.9438604641869,
+        "seg3": 1093.8133500932986,
+        "seg4": 1083.2171123686728,
+        "seg5": 1095.2372703648796
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_24",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Rheinland-Pfalz",
+      "label": "Rheinland-Pfalz",
+      "coefficients": {
+        "seg1": 1050.991117773835,
+        "seg2": 1053.4059565650407,
+        "seg3": 1055.6926242494285,
+        "seg4": 1047.142935268934,
+        "seg5": 1054.1982816303862
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_25",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Rhein-Main",
+      "label": "Rhein-Main",
+      "coefficients": {
+        "seg1": 1039.1874623016445,
+        "seg2": 1040.4793191770748,
+        "seg3": 1043.563705638678,
+        "seg4": 1034.7077453699387,
+        "seg5": 1042.7598173510996
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_26",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Ruhrgebiet",
+      "label": "Ruhrgebiet",
+      "coefficients": {
+        "seg1": 1082.0439209793724,
+        "seg2": 1082.8494327991245,
+        "seg3": 1088.576334213668,
+        "seg4": 1078.8396179215822,
+        "seg5": 1087.062047371865
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_27",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Saarland",
+      "label": "Saarland",
+      "coefficients": {
+        "seg1": 1062.7675611067448,
+        "seg2": 1067.2841704322207,
+        "seg3": 1059.671843817962,
+        "seg4": 1053.7381122105214,
+        "seg5": 1061.295798586313
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_28",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Sachsen-Anhalt",
+      "label": "Sachsen-Anhalt",
+      "coefficients": {
+        "seg1": 1118.6634989264078,
+        "seg2": 1116.3326951298532,
+        "seg3": 1121.7750504406354,
+        "seg4": 1114.4282692763202,
+        "seg5": 1124.2750972363406
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_29",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Schleswig-Holstein",
+      "label": "Schleswig-Holstein",
+      "coefficients": {
+        "seg1": 1089.029150166557,
+        "seg2": 1091.3966600498259,
+        "seg3": 1090.0123582736733,
+        "seg4": 1081.4553804480004,
+        "seg5": 1088.4385837903108
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_30",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Schwarzwald / Bodensee",
+      "label": "Schwarzwald / Bodensee",
+      "coefficients": {
+        "seg1": 1060.7832925741145,
+        "seg2": 1060.8041982531563,
+        "seg3": 1063.2102393437801,
+        "seg4": 1058.6857872103153,
+        "seg5": 1062.445182713564
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_31",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Südliches Nordrheinwestfalen",
+      "label": "Südliches Nordrheinwestfalen",
+      "coefficients": {
+        "seg1": 1089.9108771423962,
+        "seg2": 1088.6740514787878,
+        "seg3": 1091.4891813879342,
+        "seg4": 1081.8347644600515,
+        "seg5": 1092.796842543349
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_32",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Südwestfalen",
+      "label": "Südwestfalen",
+      "coefficients": {
+        "seg1": 1099.9818881937954,
+        "seg2": 1101.792900373532,
+        "seg3": 1104.9645813506195,
+        "seg4": 1094.3729397279672,
+        "seg5": 1102.6489656365895
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_33",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Thüringen Ost",
+      "label": "Thüringen Ost",
+      "coefficients": {
+        "seg1": 1053.611297276716,
+        "seg2": 1056.4286989585353,
+        "seg3": 1059.1770227590482,
+        "seg4": 1048.6700829781469,
+        "seg5": 1056.5570898610888
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_34",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Thüringen West",
+      "label": "Thüringen West",
+      "coefficients": {
+        "seg1": 1050.5830428599952,
+        "seg2": 1054.193465166024,
+        "seg3": 1058.6775047150475,
+        "seg4": 1046.3861860204386,
+        "seg5": 1055.6808342487616
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_35",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Württemberg",
+      "label": "Württemberg",
+      "coefficients": {
+        "seg1": 1067.2995144102101,
+        "seg2": 1068.1285960731911,
+        "seg3": 1070.8918318896458,
+        "seg4": 1063.8197492248328,
+        "seg5": 1071.579555247413
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_36",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Ruhrmetropole Ost",
+      "label": "Ruhrmetropole Ost",
+      "coefficients": {
+        "seg1": 1089.955575176193,
+        "seg2": 1091.3962542739466,
+        "seg3": 1095.8353694377429,
+        "seg4": 1086.3200989303223,
+        "seg5": 1094.070134780949
+      }
+    },
+    {
+      "variable": "Dichotomic_BVMWStatus_37",
+      "crm_field": "Wirtschaftsregion",
+      "match_value": "Ruhrmetropole West",
+      "label": "Ruhrmetropole West",
+      "coefficients": {
+        "seg1": 1073.2391508484932,
+        "seg2": 1078.7347501472698,
+        "seg3": 1084.3419494429463,
+        "seg4": 1074.888044665075,
+        "seg5": 1081.139562575516
+      }
+    },
+    {
+      "variable": "Dichotomic_Position_1",
+      "crm_field": "Position",
+      "match_value": "Vorstand",
+      "label": "Vorstand",
+      "coefficients": {
+        "seg1": 289.1121224451309,
+        "seg2": 290.2558308057462,
+        "seg3": 287.4532370247667,
+        "seg4": 293.281030216785,
+        "seg5": 290.7216642450011
+      }
+    },
+    {
+      "variable": "Dichotomic_Position_2",
+      "crm_field": "Position",
+      "match_value": "Prokurist:in",
+      "label": "Prokurist:in",
+      "coefficients": {
+        "seg1": 289.0507744290419,
+        "seg2": 289.54038803651787,
+        "seg3": 288.54897418809924,
+        "seg4": 290.9066119605546,
+        "seg5": 290.80543394236565
+      }
+    },
+    {
+      "variable": "Dichotomic_Position_3",
+      "crm_field": "Position",
+      "match_value": "Partner:in",
+      "label": "Partner:in",
+      "coefficients": {
+        "seg1": 307.1519700274457,
+        "seg2": 308.9409358344291,
+        "seg3": 305.3847199866485,
+        "seg4": 312.7620312981512,
+        "seg5": 311.55592884165867
+      }
+    },
+    {
+      "variable": "Dichotomic_Position_4",
+      "crm_field": "Position",
+      "match_value": "Geschäftsführung / Geschäftsleitung",
+      "label": "Geschäftsführung / Geschäftsleitung",
+      "coefficients": {
+        "seg1": 286.0442790357406,
+        "seg2": 286.60487503663177,
+        "seg3": 284.33686425409536,
+        "seg4": 289.39418154027817,
+        "seg5": 288.5113501353629
+      }
+    },
+    {
+      "variable": "Dichotomic_Position_5",
+      "crm_field": "Position",
+      "match_value": "Inhaber:in",
+      "label": "Inhaber:in",
+      "coefficients": {
+        "seg1": 287.4064728150192,
+        "seg2": 285.64568724104913,
+        "seg3": 283.8023144074208,
+        "seg4": 288.01261058056275,
+        "seg5": 288.0680007767146
+      }
+    },
+    {
+      "variable": "Dichotomic_Position_6",
+      "crm_field": "Position",
+      "match_value": "Bereichsleiter:in",
+      "label": "Bereichsleiter:in",
+      "coefficients": {
+        "seg1": 281.1332198913763,
+        "seg2": 282.20000755200317,
+        "seg3": 280.3645360466865,
+        "seg4": 288.4876398830837,
+        "seg5": 283.16781121160795
+      }
+    },
+    {
+      "variable": "Dichotomic_Position_7",
+      "crm_field": "Position",
+      "match_value": "Mitarbeiter:in",
+      "label": "Mitarbeiter:in",
+      "coefficients": {
+        "seg1": 278.21192412194426,
+        "seg2": 279.1037574031019,
+        "seg3": 278.08479888323336,
+        "seg4": 285.19265223436634,
+        "seg5": 281.4363197668365
+      }
+    },
+    {
+      "variable": "Dichotomic_Position_8",
+      "crm_field": "Position",
+      "match_value": "Assistenz",
+      "label": "Assistenz",
+      "coefficients": {
+        "seg1": 282.3404470712687,
+        "seg2": 281.8687935862158,
+        "seg3": 282.6585562009531,
+        "seg4": 284.554356954997,
+        "seg5": 286.66119267393447
+      }
+    },
+    {
+      "variable": "Dichotomic_Verantwortlichkeit",
+      "crm_field": "Gesetzlicher_Vertreter",
+      "match_value": "Sind Sie in Ihrem Unternehmen (mit-)verantwortlich für Mitgliedschaften in beispielsweise Unternehmens- oder Handelsverbänden, Interessenvertretungen etc.?",
+      "label": "Sind Sie in Ihrem Unternehmen (mit-)verantwortlich für Mitgliedschaften in beispielsweise Unternehmens- oder Handelsverbänden, Interessenvertretungen etc.?",
+      "coefficients": {
+        "seg1": 0.8362002147326031,
+        "seg2": 1.2495896575896275,
+        "seg3": 1.3618729568995531,
+        "seg4": 1.216527847085823,
+        "seg5": 1.0454178831621268
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_1",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Erbringung von sonstigen wirtschaftlichen Dienstleistungen",
+      "label": "Erbringung von sonstigen wirtschaftlichen Dienstleistungen",
+      "coefficients": {
+        "seg1": 55.72684185638702,
+        "seg2": 56.69982442495754,
+        "seg3": 57.04592570371361,
+        "seg4": 53.16438129243604,
+        "seg5": 55.88081348247615
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_2",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Verarbeitendes Gewerbe",
+      "label": "Verarbeitendes Gewerbe",
+      "coefficients": {
+        "seg1": 48.05078917599415,
+        "seg2": 49.361232995310736,
+        "seg3": 49.31128820607696,
+        "seg4": 45.3106855487433,
+        "seg5": 49.87369078740118
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_3",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Handel; Instandhaltung und Reparatur von Kraftfahrzeugen",
+      "label": "Handel; Instandhaltung und Reparatur von Kraftfahrzeugen",
+      "coefficients": {
+        "seg1": 46.49911455274957,
+        "seg2": 48.401944117205005,
+        "seg3": 48.53094282911208,
+        "seg4": 45.115322272723475,
+        "seg5": 48.82958942167337
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_4",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Information und Kommunikation",
+      "label": "Information und Kommunikation",
+      "coefficients": {
+        "seg1": 45.73674498841941,
+        "seg2": 45.199249686859545,
+        "seg3": 45.75227533971585,
+        "seg4": 42.96025728443518,
+        "seg5": 44.76451021623577
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_5",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Grundstücks- und Wohnungswesen",
+      "label": "Grundstücks- und Wohnungswesen",
+      "coefficients": {
+        "seg1": 48.41566545915662,
+        "seg2": 50.435903997230895,
+        "seg3": 50.47597993370503,
+        "seg4": 48.15768484066181,
+        "seg5": 50.12641209780674
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_6",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Baugewerbe",
+      "label": "Baugewerbe",
+      "coefficients": {
+        "seg1": 49.73828650265535,
+        "seg2": 48.81921228825255,
+        "seg3": 50.47718624235795,
+        "seg4": 45.771572590309205,
+        "seg5": 52.020550578861496
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_7",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Gastgewerbe",
+      "label": "Gastgewerbe",
+      "coefficients": {
+        "seg1": 46.273068108512916,
+        "seg2": 47.91287032166654,
+        "seg3": 50.14052357223586,
+        "seg4": 44.367146972069314,
+        "seg5": 50.85444958939232
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_8",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Verkehr und Lagerei",
+      "label": "Verkehr und Lagerei",
+      "coefficients": {
+        "seg1": 54.46590705797835,
+        "seg2": 52.60065777492053,
+        "seg3": 54.95748477046502,
+        "seg4": 49.798365349881884,
+        "seg5": 54.69882262240913
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_9",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Energieversorgung",
+      "label": "Energieversorgung",
+      "coefficients": {
+        "seg1": 89.73186670155526,
+        "seg2": 90.4276501512234,
+        "seg3": 89.67906904972173,
+        "seg4": 87.79322931848341,
+        "seg5": 88.84752663130236
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_10",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Erbringung von sonstigen Dienstleistungen",
+      "label": "Erbringung von sonstigen Dienstleistungen",
+      "coefficients": {
+        "seg1": 49.484960475771935,
+        "seg2": 51.47395973276754,
+        "seg3": 52.2107497643744,
+        "seg4": 49.062541844857115,
+        "seg5": 52.11095426503631
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_11",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Erbringung von freiberuflichen, wissenschaftlichen und technischen Dienstleistungen",
+      "label": "Erbringung von freiberuflichen, wissenschaftlichen und technischen Dienstleistungen",
+      "coefficients": {
+        "seg1": 52.23919429538834,
+        "seg2": 52.648193316430195,
+        "seg3": 52.57421701381897,
+        "seg4": 49.00937011556849,
+        "seg5": 51.928765352525666
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_12",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Wasserversorgung; Abwasser- und Abfallentsorgung und Beseitigung von Umweltverschmutzungen",
+      "label": "Wasserversorgung; Abwasser- und Abfallentsorgung und Beseitigung von Umweltverschmutzungen",
+      "coefficients": {
+        "seg1": 49.75149426565165,
+        "seg2": 50.42027003267205,
+        "seg3": 48.07359201942084,
+        "seg4": 43.79536588416959,
+        "seg5": 48.358036538019405
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_13",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Erbringung von Finanz- und Versicherungsdienstleistungen",
+      "label": "Erbringung von Finanz- und Versicherungsdienstleistungen",
+      "coefficients": {
+        "seg1": 61.107511238987584,
+        "seg2": 61.63115280780385,
+        "seg3": 61.47080251157584,
+        "seg4": 59.76787168872108,
+        "seg5": 60.73964441956535
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_14",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Kunst, Unterhaltung und Erholung",
+      "label": "Kunst, Unterhaltung und Erholung",
+      "coefficients": {
+        "seg1": 46.4946739583832,
+        "seg2": 47.90741746985165,
+        "seg3": 49.452552853531316,
+        "seg4": 47.8613321005693,
+        "seg5": 51.522225311789214
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_15",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Gesundheits- und Sozialwesen",
+      "label": "Gesundheits- und Sozialwesen",
+      "coefficients": {
+        "seg1": 68.14756493314849,
+        "seg2": 69.53879378273378,
+        "seg3": 70.54065497220127,
+        "seg4": 65.01909238453477,
+        "seg5": 69.92395913276535
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_16",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Erziehung und Unterricht",
+      "label": "Erziehung und Unterricht",
+      "coefficients": {
+        "seg1": 50.036085683775966,
+        "seg2": 50.11116326597835,
+        "seg3": 51.58724394832671,
+        "seg4": 47.61768506031867,
+        "seg5": 50.81855137270981
+      }
+    },
+    {
+      "variable": "Dichotomic_branche_17",
+      "crm_field": "Branche_Oberkategorie",
+      "match_value": "Öffentliche Verwaltung, Verteidigung; Sozialversicherung",
+      "label": "Öffentliche Verwaltung, Verteidigung; Sozialversicherung",
+      "coefficients": {
+        "seg1": 54.61693995074596,
+        "seg2": 56.77172831776056,
+        "seg3": 55.875264979479425,
+        "seg4": 55.554650066717315,
+        "seg5": 57.00408832670607
+      }
+    },
+    {
+      "variable": "Dichotomic_AnzahlMitarbeiter_1",
+      "crm_field": "Mitarbeiter oder BD Mitarbeiterstaffel",
+      "match_value": "1-4",
+      "label": "1-4",
+      "coefficients": {
+        "seg1": 12.018834326317105,
+        "seg2": 5.713364229522319,
+        "seg3": 4.899704354419686,
+        "seg4": 3.602953799329864,
+        "seg5": 4.802069930092206
+      }
+    },
+    {
+      "variable": "Dichotomic_AnzahlMitarbeiter_2",
+      "crm_field": "Mitarbeiter oder BD Mitarbeiterstaffel",
+      "match_value": "5-9",
+      "label": "5-9",
+      "coefficients": {
+        "seg1": 7.583061343507681,
+        "seg2": 7.710804933846386,
+        "seg3": 6.848301048739992,
+        "seg4": 9.035212470402703,
+        "seg5": 6.640029543040695
+      }
+    },
+    {
+      "variable": "Dichotomic_AnzahlMitarbeiter_3",
+      "crm_field": "Mitarbeiter oder BD Mitarbeiterstaffel",
+      "match_value": "10-24",
+      "label": "10-24",
+      "coefficients": {
+        "seg1": 11.240242070649487,
+        "seg2": 10.793063692312797,
+        "seg3": 9.600548189689443,
+        "seg4": 10.756579674226343,
+        "seg5": 11.811796763243612
+      }
+    },
+    {
+      "variable": "Dichotomic_AnzahlMitarbeiter_4",
+      "crm_field": "Mitarbeiter oder BD Mitarbeiterstaffel",
+      "match_value": "25-49",
+      "label": "25-49",
+      "coefficients": {
+        "seg1": 11.203971751076637,
+        "seg2": 11.078992163508234,
+        "seg3": 8.797666350464995,
+        "seg4": 11.140539495983097,
+        "seg5": 11.247854428993481
+      }
+    },
+    {
+      "variable": "Dichotomic_AnzahlMitarbeiter_5",
+      "crm_field": "Mitarbeiter oder BD Mitarbeiterstaffel",
+      "match_value": "50-249",
+      "label": "50-249",
+      "coefficients": {
+        "seg1": 14.147124520739995,
+        "seg2": 13.756970823555832,
+        "seg3": 11.918818490580117,
+        "seg4": 14.041164241522793,
+        "seg5": 13.994660834681111
+      }
+    },
+    {
+      "variable": "Dichotomic_AnzahlMitarbeiter_6",
+      "crm_field": "Mitarbeiter oder BD Mitarbeiterstaffel",
+      "match_value": "250-499",
+      "label": "250-499",
+      "coefficients": {
+        "seg1": 9.548875784853417,
+        "seg2": 9.750417290919192,
+        "seg3": 7.750736488257637,
+        "seg4": 10.109157531432336,
+        "seg5": 7.9167647157264875
+      }
+    },
+    {
+      "variable": "Dichotomic_AnzahlMitarbeiter_7",
+      "crm_field": "Mitarbeiter oder BD Mitarbeiterstaffel",
+      "match_value": "500 und mehr",
+      "label": "500 und mehr",
+      "coefficients": {
+        "seg1": 9.124609281367157,
+        "seg2": 8.14527763051986,
+        "seg3": 7.2979293457628955,
+        "seg4": 8.784486650539138,
+        "seg5": 9.121149565210471
+      }
+    },
+    {
+      "variable": "Female",
+      "crm_field": "Anrede",
+      "match_value": "Female",
+      "label": "Female",
+      "coefficients": {
+        "seg1": -3.289459733054199,
+        "seg2": -3.871704998847511,
+        "seg3": -3.774893057091543,
+        "seg4": -3.4873447123478294,
+        "seg5": -3.6557871939335462
+      }
+    },
+    {
+      "variable": "Dichotomic_Mitgliedsdauer_1",
+      "crm_field": "Mitgliedsdauer_Jahre",
+      "match_value": "Mitgliedsdauer bis zu 1 Jahr",
+      "label": "Mitgliedsdauer bis zu 1 Jahr",
+      "coefficients": {
+        "seg1": 11.94569253698855,
+        "seg2": 11.74710532816704,
+        "seg3": 11.718809785653155,
+        "seg4": 12.332933822909617,
+        "seg5": 10.722121083117203
+      }
+    },
+    {
+      "variable": "Dichotomic_Mitgliedsdauer_2",
+      "crm_field": "Mitgliedsdauer_Jahre",
+      "match_value": "Mitgliedsdauer 2 bis 4 Jahre",
+      "label": "Mitgliedsdauer 2 bis 4 Jahre",
+      "coefficients": {
+        "seg1": 7.720142666618275,
+        "seg2": 7.885266181182422,
+        "seg3": 8.201933571470716,
+        "seg4": 8.358050569287588,
+        "seg5": 8.084236003187682
+      }
+    },
+    {
+      "variable": "Dichotomic_Mitgliedsdauer_3",
+      "crm_field": "Mitgliedsdauer_Jahre",
+      "match_value": "Mitgliedsdauer 5 bis 9 Jahre",
+      "label": "Mitgliedsdauer 5 bis 9 Jahre",
+      "coefficients": {
+        "seg1": 4.315672535564673,
+        "seg2": 4.209234326431026,
+        "seg3": 4.119994040533503,
+        "seg4": 5.19383206742913,
+        "seg5": 3.654479598653051
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_1",
+      "crm_field": "Bundesland",
+      "match_value": "Baden-Württemberg",
+      "label": "Baden-Württemberg",
+      "coefficients": {
+        "seg1": 316.30601572991776,
+        "seg2": 316.9213871004295,
+        "seg3": 317.09074488845783,
+        "seg4": 316.20885450546496,
+        "seg5": 320.5636042436842
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_2",
+      "crm_field": "Bundesland",
+      "match_value": "Bayern",
+      "label": "Bayern",
+      "coefficients": {
+        "seg1": 311.8123062821945,
+        "seg2": 311.0766306707805,
+        "seg3": 311.28024159123726,
+        "seg4": 311.8398262311263,
+        "seg5": 315.3116026975804
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_3",
+      "crm_field": "Bundesland",
+      "match_value": "Berlin",
+      "label": "Berlin",
+      "coefficients": {
+        "seg1": 109.40595778626161,
+        "seg2": 116.99439124169383,
+        "seg3": 114.83763546270715,
+        "seg4": 113.23766119881326,
+        "seg5": 113.28237262401001
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_4",
+      "crm_field": "Bundesland",
+      "match_value": "Brandenburg",
+      "label": "Brandenburg",
+      "coefficients": {
+        "seg1": 120.88791297807701,
+        "seg2": 127.1192221769514,
+        "seg3": 124.76243714691377,
+        "seg4": 121.88332250574513,
+        "seg5": 124.10734619908
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_5",
+      "crm_field": "Bundesland",
+      "match_value": "Bremen",
+      "label": "Bremen",
+      "coefficients": {
+        "seg1": 298.03849380158937,
+        "seg2": 296.6234117937964,
+        "seg3": 297.604710811881,
+        "seg4": 295.13422382995674,
+        "seg5": 303.70616922764384
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_6",
+      "crm_field": "Bundesland",
+      "match_value": "Hamburg",
+      "label": "Hamburg",
+      "coefficients": {
+        "seg1": 286.3680894090066,
+        "seg2": 288.7974538814997,
+        "seg3": 288.4501097572796,
+        "seg4": 285.651692382155,
+        "seg5": 292.6223393654962
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_7",
+      "crm_field": "Bundesland",
+      "match_value": "Hessen",
+      "label": "Hessen",
+      "coefficients": {
+        "seg1": 347.08346283000014,
+        "seg2": 346.6578478493104,
+        "seg3": 347.29492443469115,
+        "seg4": 348.31734677706817,
+        "seg5": 351.1244379711118
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_8",
+      "crm_field": "Bundesland",
+      "match_value": "Mecklenburg-Vorpommern",
+      "label": "Mecklenburg-Vorpommern",
+      "coefficients": {
+        "seg1": 279.7815101403239,
+        "seg2": 279.85785772358236,
+        "seg3": 279.0612889531289,
+        "seg4": 279.96400000520094,
+        "seg5": 282.00375892413985
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_9",
+      "crm_field": "Bundesland",
+      "match_value": "Niedersachsen",
+      "label": "Niedersachsen",
+      "coefficients": {
+        "seg1": 292.2688309061454,
+        "seg2": 293.17183183693714,
+        "seg3": 292.6334045165673,
+        "seg4": 290.49234975165376,
+        "seg5": 298.05114111826856
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_10",
+      "crm_field": "Bundesland",
+      "match_value": "Nordrhein-Westfalen",
+      "label": "Nordrhein-Westfalen",
+      "coefficients": {
+        "seg1": 289.3508563623979,
+        "seg2": 289.8104661946232,
+        "seg3": 289.7989674306711,
+        "seg4": 289.54320569642294,
+        "seg5": 293.0383100792855
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_11",
+      "crm_field": "Bundesland",
+      "match_value": "Rheinland-Pfalz",
+      "label": "Rheinland-Pfalz",
+      "coefficients": {
+        "seg1": 327.108703230331,
+        "seg2": 325.9353024589085,
+        "seg3": 326.4732980780748,
+        "seg4": 326.4506026990375,
+        "seg5": 330.5315221389444
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_12",
+      "crm_field": "Bundesland",
+      "match_value": "Saarland",
+      "label": "Saarland",
+      "coefficients": {
+        "seg1": 319.59941460022696,
+        "seg2": 321.4428529267448,
+        "seg3": 327.2308662992029,
+        "seg4": 323.8155661852284,
+        "seg5": 327.5041679337962
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_13",
+      "crm_field": "Bundesland",
+      "match_value": "Sachsen",
+      "label": "Sachsen",
+      "coefficients": {
+        "seg1": 229.83385089158386,
+        "seg2": 233.17552851670024,
+        "seg3": 230.29398645506805,
+        "seg4": 229.52817030088943,
+        "seg5": 232.0538730794436
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_14",
+      "crm_field": "Bundesland",
+      "match_value": "Sachsen-Anhalt",
+      "label": "Sachsen-Anhalt",
+      "coefficients": {
+        "seg1": 261.3049370569768,
+        "seg2": 264.38176086516165,
+        "seg3": 262.5764586297543,
+        "seg4": 261.2270337611424,
+        "seg5": 264.50937526400713
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_15",
+      "crm_field": "Bundesland",
+      "match_value": "Schleswig-Holstein",
+      "label": "Schleswig-Holstein",
+      "coefficients": {
+        "seg1": 283.73868598410894,
+        "seg2": 285.85906194348723,
+        "seg3": 285.45677918665825,
+        "seg4": 283.82886107269314,
+        "seg5": 290.29842415606043
+      }
+    },
+    {
+      "variable": "Dichotomic_Bundesland_16",
+      "crm_field": "Bundesland",
+      "match_value": "Thüringen",
+      "label": "Thüringen",
+      "coefficients": {
+        "seg1": 329.51565616188344,
+        "seg2": 326.31323086322317,
+        "seg3": 326.7295108825595,
+        "seg4": 328.01239229664066,
+        "seg5": 331.36927282436596
+      }
+    }
+  ]
+}
