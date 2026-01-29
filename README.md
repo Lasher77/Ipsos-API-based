@@ -51,12 +51,28 @@ curl -X POST "http://localhost:8000/segment?include_features=true&pretty_scores=
   -d '{"Status_ Mitgliedschaft": "Mitglied beim Mittelstand. BVMW", "Wirtschaftsregion": "Bayern Nord"}'
 ```
 
+Segmentierung (alle Felder):
+
+```bash
+curl -X POST "http://localhost:8000/segment?include_features=true&pretty_scores=true" \
+  -H "Content-Type: application/json" \
+  -d '{"Anrede":"Female","Branche_Oberkategorie":"Dienstleistung","Bundesland":"Berlin","Gesetzlicher_Vertreter":"Ja","Mitarbeiter oder BD Mitarbeiterstaffel":"10-49","Mitgliedsdauer_Jahre":"3","Position":"Geschäftsführer","Status_ Mitgliedschaft":"Mitglied beim Mittelstand. BVMW","Wirtschaftsregion":"Berlin"}'
+```
+
 Batch:
 
 ```bash
 curl -X POST "http://localhost:8000/segment/batch" \
   -H "Content-Type: application/json" \
   -d '{"items": [{"Status_ Mitgliedschaft": "Mitglied beim Mittelstand. BVMW"}, {"Wirtschaftsregion": "Bayern Nord"}]}'
+```
+
+Batch (alle Felder):
+
+```bash
+curl -X POST "http://localhost:8000/segment/batch?pretty_scores=true" \
+  -H "Content-Type: application/json" \
+  -d '{"items": [{"Anrede":"Female","Branche_Oberkategorie":"Dienstleistung","Bundesland":"Berlin","Gesetzlicher_Vertreter":"Ja","Mitarbeiter oder BD Mitarbeiterstaffel":"10-49","Mitgliedsdauer_Jahre":"3","Position":"Geschäftsführer","Status_ Mitgliedschaft":"Mitglied beim Mittelstand. BVMW","Wirtschaftsregion":"Berlin"}]}'
 ```
 
 ## n8n Beispiel (textuell)
