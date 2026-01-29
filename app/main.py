@@ -4,6 +4,7 @@ import logging
 from typing import Any
 
 from fastapi import Body, FastAPI, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import Settings
 from app.model import BatchRequest, BatchResponse, HealthResponse, MetaResponse, SegmentResponse
@@ -16,6 +17,12 @@ logger = logging.getLogger(__name__)
 
 def create_app(ruleset: RuleSet | None = None) -> FastAPI:
     app = FastAPI(title="BVMW Typing Tool Segmenter", version="1.0.0")
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     if ruleset is None:
         settings = Settings()
