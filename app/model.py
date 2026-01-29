@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Optional
 
 from pydantic import BaseModel, Field
 
@@ -18,13 +18,13 @@ class MetaResponse(BaseModel):
 
 class SegmentResponse(BaseModel):
     segment: str
-    second_segment: str | None
+    second_segment: Optional[str]
     type: str
     difference: float
     best_score: float
-    second_best_score: float | None
+    second_best_score: Optional[float]
     scores: dict[str, float]
-    matched_features: list[dict[str, Any]] | None = None
+    matched_features: Optional[list[dict[str, Any]]] = None
     rule_set_version: str
 
 
