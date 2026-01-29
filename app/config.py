@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Optional
 
 from pydantic import BaseModel, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -16,5 +17,5 @@ class Settings(BaseSettings):
 class RuleSetMetadata(BaseModel):
     model_config = SettingsConfigDict(extra="ignore")
 
-    rule_set_version: str | None = None
-    case_insensitive: bool | None = None
+    rule_set_version: Optional[str] = None
+    case_insensitive: Optional[bool] = None
