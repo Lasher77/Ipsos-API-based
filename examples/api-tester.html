@@ -133,6 +133,11 @@
     </div>
 
     <div class="card">
+      <h2>Request</h2>
+      <pre id="request">Noch keine Anfrage gesendet.</pre>
+    </div>
+
+    <div class="card">
       <h2>Response</h2>
       <pre id="response">Noch keine Anfrage gesendet.</pre>
     </div>
@@ -296,6 +301,7 @@
       };
 
       const selectGrid = document.getElementById("select-grid");
+      const requestEl = document.getElementById("request");
       const responseEl = document.getElementById("response");
       const statusEl = document.getElementById("status");
       const form = document.getElementById("segment-form");
@@ -407,8 +413,15 @@
         if (prettyScores) params.set("pretty_scores", "true");
 
         const url = `${baseUrl}/segment?${params.toString()}`;
+        const requestDetails = {
+          method: "POST",
+          url,
+          headers: { "Content-Type": "application/json" },
+          body: payload
+        };
 
         statusEl.textContent = "Sende Anfrage ...";
+        requestEl.textContent = JSON.stringify(requestDetails, null, 2);
         responseEl.textContent = "";
 
         try {
@@ -431,6 +444,7 @@
       function resetForm() {
         form.reset();
         statusEl.textContent = "";
+        requestEl.textContent = "Noch keine Anfrage gesendet.";
         responseEl.textContent = "Noch keine Anfrage gesendet.";
       }
 
