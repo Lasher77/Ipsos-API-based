@@ -25,6 +25,8 @@ class RuleSet:
     features: list[FeatureRule]
     rule_set_version: str
     case_insensitive: bool
+    code_mappings: dict[str, dict[str, str]]
+    value_aliases: dict[str, dict[str, str]]
 
 
 class RulesLoaderError(ValueError):
@@ -70,6 +72,54 @@ def _build_segment_names(raw_segments: list[Any], intercept_keys: list[str]) -> 
     return mapping
 
 
+def _load_code_mappings(path: Path, case_insensitive: bool) -> dict[str, dict[str, str]]:
+    if not path.exists():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise RulesLoaderError(f"Code list file is not valid JSON: {exc}") from exc
+    if not isinstance(payload, dict):
+        raise RulesLoaderError("Code list file must be a JSON object")
+
+    normalized: dict[str, dict[str, str]] = {}
+    for field, mapping in payload.items():
+        if not isinstance(field, str) or not isinstance(mapping, dict):
+            raise RulesLoaderError("Code list mappings must be objects keyed by field name")
+        field_name = field.strip()
+        normalized[field_name] = {}
+        for key, value in mapping.items():
+            if not isinstance(key, str) or not isinstance(value, str):
+                continue
+            map_key = key.strip()
+            map_value = value.strip()
+            if case_insensitive:
+                map_key = map_key.lower()
+                map_value = map_value.lower()
+            normalized[field_name][map_key] = map_value
+    return normalized
+
+
+def _build_value_aliases(case_insensitive: bool) -> dict[str, dict[str, str]]:
+    aliases = {
+        "Anrede": {
+            "weiblich": "female",
+        },
+        "Gesetzlicher_Vertreter": {
+            "ja": (
+                "Sind Sie in Ihrem Unternehmen (mit-)verantwortlich für Mitgliedschaften in "
+                "beispielsweise Unternehmens- oder Handelsverbänden, Interessenvertretungen etc.?"
+            ),
+        },
+    }
+    if not case_insensitive:
+        return aliases
+    normalized: dict[str, dict[str, str]] = {}
+    for field, mapping in aliases.items():
+        normalized[field] = {key.lower(): value.lower() for key, value in mapping.items()}
+    return normalized
+
+
 def load_rules(settings: Settings) -> RuleSet:
     path = settings.rules_path
     try:
@@ -81,6 +131,18 @@ def load_rules(settings: Settings) -> RuleSet:
         payload = json.loads(raw_text)
     except json.JSONDecodeError as exc:
         raise RulesLoaderError(f"Rules file is not valid JSON: {exc}") from exc
+
+    metadata = RuleSetMetadata.model_validate(payload)
+    rule_set_version = metadata.rule_set_version or payload.get("version")
+    if not isinstance(rule_set_version, str) or not rule_set_version:
+        rule_set_version = sha256_file(path)
+
+    case_insensitive = metadata.case_insensitive
+    if case_insensitive is None:
+        case_insensitive = settings.case_insensitive
+
+    code_mappings = _load_code_mappings(settings.code_list_path, case_insensitive)
+    value_aliases = _build_value_aliases(case_insensitive)
 
     intercepts_raw = _ensure_mapping(payload.get("intercepts"), "intercepts")
     intercept_keys = list(intercepts_raw.keys())
@@ -132,15 +194,6 @@ def load_rules(settings: Settings) -> RuleSet:
             )
         )
 
-    metadata = RuleSetMetadata.model_validate(payload)
-    rule_set_version = metadata.rule_set_version or payload.get("version")
-    if not isinstance(rule_set_version, str) or not rule_set_version:
-        rule_set_version = sha256_file(path)
-
-    case_insensitive = metadata.case_insensitive
-    if case_insensitive is None:
-        case_insensitive = settings.case_insensitive
-
     return RuleSet(
         segments=segments,
         intercepts=intercepts,
@@ -148,4 +201,6 @@ def load_rules(settings: Settings) -> RuleSet:
         features=features,
         rule_set_version=rule_set_version,
         case_insensitive=case_insensitive,
+        code_mappings=code_mappings,
+        value_aliases=value_aliases,
     )

@@ -98,7 +98,7 @@
   </head>
   <body>
     <h1>BVMW Segmenter API Tester</h1>
-    <p>Einfaches HTML-Formular, um die Segmenter-API lokal zu testen.</p>
+    <p>Einfaches HTML-Formular, um die Segmenter-API lokal zu testen (Textwerte oder Codes).</p>
 
     <div class="card">
       <form id="segment-form">
@@ -115,6 +115,10 @@
           <label>
             <input type="checkbox" id="pretty-scores" checked />
             pretty_scores
+          </label>
+          <label>
+            <input type="checkbox" id="use-codes" />
+            Codes statt Textwerte senden
           </label>
         </div>
 
@@ -134,116 +138,161 @@
     </div>
 
     <script>
-      const optionsByField = {
-        "Anrede": ["Female"],
-        "Branche_Oberkategorie": [
-          "Baugewerbe",
-          "Energieversorgung",
-          "Erbringung von Finanz- und Versicherungsdienstleistungen",
-          "Erbringung von freiberuflichen, wissenschaftlichen und technischen Dienstleistungen",
-          "Erbringung von sonstigen Dienstleistungen",
-          "Erbringung von sonstigen wirtschaftlichen Dienstleistungen",
-          "Erziehung und Unterricht",
-          "Gastgewerbe",
-          "Gesundheits- und Sozialwesen",
-          "Grundstücks- und Wohnungswesen",
-          "Handel; Instandhaltung und Reparatur von Kraftfahrzeugen",
-          "Information und Kommunikation",
-          "Kunst, Unterhaltung und Erholung",
-          "Verarbeitendes Gewerbe",
-          "Verkehr und Lagerei",
-          "Wasserversorgung; Abwasser- und Abfallentsorgung und Beseitigung von Umweltverschmutzungen",
-          "Öffentliche Verwaltung, Verteidigung; Sozialversicherung"
-        ],
-        "Bundesland": [
-          "Baden-Württemberg",
-          "Bayern",
-          "Berlin",
-          "Brandenburg",
-          "Bremen",
-          "Hamburg",
-          "Hessen",
-          "Mecklenburg-Vorpommern",
-          "Niedersachsen",
-          "Nordrhein-Westfalen",
-          "Rheinland-Pfalz",
-          "Saarland",
-          "Sachsen",
-          "Sachsen-Anhalt",
-          "Schleswig-Holstein",
-          "Thüringen"
-        ],
-        "Gesetzlicher_Vertreter": [
-          "Sind Sie in Ihrem Unternehmen (mit-)verantwortlich für Mitgliedschaften in beispielsweise Unternehmens- oder Handelsverbänden, Interessenvertretungen etc.?"
-        ],
-        "Mitarbeiter oder BD Mitarbeiterstaffel": [
-          "1-4",
-          "10-24",
-          "25-49",
-          "250-499",
-          "5-9",
-          "50-249",
-          "500 und mehr"
-        ],
-        "Mitgliedsdauer_Jahre": [
-          "Mitgliedsdauer 2 bis 4 Jahre",
-          "Mitgliedsdauer 5 bis 9 Jahre",
-          "Mitgliedsdauer bis zu 1 Jahr"
-        ],
-        "Position": [
-          "Assistenz",
-          "Bereichsleiter:in",
-          "Geschäftsführung / Geschäftsleitung",
-          "Inhaber:in",
-          "Mitarbeiter:in",
-          "Partner:in",
-          "Prokurist:in",
-          "Vorstand"
-        ],
-        "Status_ Mitgliedschaft": [
-          "Ehemaliges Mitglied Mittelstand. BVMW",
-          "Mitglied beim Mittelstand. BVMW",
-          "Mitglied in Kündigung beim Mittelstand. BVMW"
-        ],
-        "Wirtschaftsregion": [
-          "BWS",
-          "BWS / LWS",
-          "Bayern Nord",
-          "Bayern Süd",
-          "Berlin / Brandenburg Nord",
-          "Berlin / Brandenburg Süd-West",
-          "Brandenburg Süd-Ost",
-          "Bremen Oldenburg",
-          "Bundeszentrale",
-          "Chemnitz",
-          "Dresden",
-          "Düsseldorf",
-          "Hamburg",
-          "Hannover",
-          "Köln/-Rhein-Erft-Kreis",
-          "Leipzig",
-          "Mainfranken",
-          "Mecklenburg-Vorpommern",
-          "Münsterland / Ostwestfalen-Lippe",
-          "NRW Südwest",
-          "Niedersachsen West",
-          "Nordbaden-Rhein-Neckar",
-          "Nordhessen",
-          "Rhein-Main",
-          "Rheinland-Pfalz",
-          "Ruhrgebiet",
-          "Ruhrmetropole Ost",
-          "Ruhrmetropole West",
-          "Saarland",
-          "Sachsen-Anhalt",
-          "Schleswig-Holstein",
-          "Schwarzwald / Bodensee",
-          "Südliches Nordrheinwestfalen",
-          "Südwestfalen",
-          "Thüringen Ost",
-          "Thüringen West",
-          "Württemberg"
-        ]
+      const fieldConfig = {
+        "Anrede": {
+          type: "select",
+          options: [
+            { code: "1", label: "Männlich" },
+            { code: "2", label: "Weiblich" },
+            { code: "3", label: "Divers" },
+            { code: "99", label: "Keine Angabe" }
+          ]
+        },
+        "Branche_Oberkategorie": {
+          type: "select",
+          options: [
+            { code: "1", label: "Erbringung von sonstigen wirtschaftlichen Dienstleistungen" },
+            { code: "2", label: "Verarbeitendes Gewerbe" },
+            { code: "3", label: "Handel; Instandhaltung und Reparatur von Kraftfahrzeugen" },
+            { code: "4", label: "Information und Kommunikation" },
+            { code: "5", label: "Grundstücks- und Wohnungswesen" },
+            { code: "6", label: "Baugewerbe" },
+            { code: "7", label: "Gastgewerbe" },
+            { code: "8", label: "Verkehr und Lagerei" },
+            { code: "9", label: "Energieversorgung" },
+            { code: "10", label: "Erbringung von sonstigen Dienstleistungen" },
+            { code: "11", label: "Erbringung von freiberuflichen, wissenschaftlichen und technischen Dienstleistungen" },
+            { code: "12", label: "Wasserversorgung; Abwasser- und Abfallentsorgung und Beseitigung von Umweltverschmutzungen" },
+            { code: "13", label: "Erbringung von Finanz- und Versicherungsdienstleistungen" },
+            { code: "14", label: "Kunst, Unterhaltung und Erholung" },
+            { code: "15", label: "Gesundheits- und Sozialwesen" },
+            { code: "16", label: "Erziehung und Unterricht" },
+            { code: "17", label: "Land- und Forstwirtschaft, Fischerei" },
+            { code: "18", label: "Öffentliche Verwaltung, Verteidigung; Sozialversicherung" },
+            { code: "19", label: "Exterritoriale Organisationen und Körperschaften" },
+            {
+              code: "20",
+              label:
+                "Private Haushalte mit Hauspersonal; Herstellung von Waren und Erbringung von Dienstleistungen durch private Haushalte fü"
+            },
+            { code: "21", label: "Bergbau und Gewinnung von Steinen und Erden" },
+            { code: "98", label: "Sonstige Branche und zwar:" }
+          ]
+        },
+        "Bundesland": {
+          type: "select",
+          options: [
+            { code: "1", label: "Baden-Württemberg" },
+            { code: "2", label: "Bayern" },
+            { code: "3", label: "Berlin" },
+            { code: "4", label: "Brandenburg" },
+            { code: "5", label: "Bremen" },
+            { code: "6", label: "Hamburg" },
+            { code: "7", label: "Hessen" },
+            { code: "8", label: "Mecklenburg-Vorpommern" },
+            { code: "9", label: "Niedersachsen" },
+            { code: "10", label: "Nordrhein-Westfalen" },
+            { code: "11", label: "Rheinland-Pfalz" },
+            { code: "12", label: "Saarland" },
+            { code: "13", label: "Sachsen" },
+            { code: "14", label: "Sachsen-Anhalt" },
+            { code: "15", label: "Schleswig-Holstein" },
+            { code: "16", label: "Thüringen" },
+            { code: "91", label: "Ausland" }
+          ]
+        },
+        "Gesetzlicher_Vertreter": {
+          type: "select",
+          options: [
+            { code: "1", label: "ja" },
+            { code: "2", label: "nein" }
+          ]
+        },
+        "Mitarbeiter oder BD Mitarbeiterstaffel": {
+          type: "select",
+          options: [
+            { code: "1", label: "1-4" },
+            { code: "2", label: "5-9" },
+            { code: "3", label: "10-24" },
+            { code: "4", label: "25-49" },
+            { code: "5", label: "50-249" },
+            { code: "6", label: "250-499" },
+            { code: "7", label: "500 und mehr" },
+            { code: "99", label: "weiß nicht/ keine Angabe" }
+          ]
+        },
+        "Mitgliedsdauer_Jahre": {
+          type: "text",
+          placeholder: "z.B. 3 oder Mitgliedsdauer 2 bis 4 Jahre"
+        },
+        "Position": {
+          type: "select",
+          options: [
+            { code: "1", label: "Vorstand" },
+            { code: "2", label: "Prokurist:in" },
+            { code: "3", label: "Partner:in" },
+            { code: "4", label: "Geschäftsführung / Geschäftsleitung" },
+            { code: "5", label: "Inhaber:in" },
+            { code: "6", label: "Bereichsleiter:in" },
+            { code: "7", label: "Mitarbeiter:in" },
+            { code: "8", label: "Assistenz" },
+            { code: "9", label: "Freie:r Mitarbeiter:in" }
+          ]
+        },
+        "Status_ Mitgliedschaft": {
+          type: "select",
+          options: [
+            { code: "1", label: "Mitglied beim Mittelstand. BVMW" },
+            { code: "2", label: "Mitglied in Kündigung beim Mittelstand. BVMW" },
+            { code: "3", label: "Ehemaliges Mitglied Mittelstand. BVMW" },
+            { code: "4", label: "Interessenten Mittelstand. BVMW" }
+          ]
+        },
+        "Wirtschaftsregion": {
+          type: "select",
+          options: [
+            { code: "1", label: "Bayern Nord" },
+            { code: "2", label: "Bayern Süd" },
+            { code: "3", label: "Berlin / Brandenburg Nord" },
+            { code: "4", label: "Berlin / Brandenburg Süd-West" },
+            { code: "5", label: "Brandenburg Süd-Ost" },
+            { code: "6", label: "Bremen Oldenburg" },
+            { code: "7", label: "Bundeszentrale" },
+            { code: "8", label: "BWS" },
+            { code: "9", label: "BWS / LWS" },
+            { code: "10", label: "Chemnitz" },
+            { code: "11", label: "Cottbus, Niederlausitz" },
+            { code: "12", label: "Dresden" },
+            { code: "13", label: "Düsseldorf" },
+            { code: "14", label: "Hamburg" },
+            { code: "15", label: "Hannover" },
+            { code: "16", label: "Köln/-Rhein-Erft-Kreis" },
+            { code: "17", label: "Leipzig" },
+            { code: "18", label: "Mainfranken" },
+            { code: "19", label: "Mecklenburg-Vorpommern" },
+            { code: "20", label: "Münsterland / Ostwestfalen-Lippe" },
+            { code: "21", label: "Niedersachsen West" },
+            { code: "22", label: "Nordbaden-Rhein-Neckar" },
+            { code: "23", label: "Nordhessen" },
+            { code: "24", label: "NRW Südwest" },
+            { code: "25", label: "Rheinland-Pfalz" },
+            { code: "26", label: "Rhein-Main" },
+            { code: "27", label: "Ruhrgebiet" },
+            { code: "28", label: "Saarland" },
+            { code: "29", label: "Sachsen-Anhalt" },
+            { code: "30", label: "Schleswig-Holstein" },
+            { code: "31", label: "Schwarzwald / Bodensee" },
+            { code: "32", label: "Südliches Nordrheinwestfalen" },
+            { code: "33", label: "Südwestfalen" },
+            { code: "34", label: "Thüringen" },
+            { code: "35", label: "Thüringen Ost" },
+            { code: "36", label: "Thüringen West" },
+            { code: "37", label: "Württemberg" },
+            { code: "38", label: "Ruhrmetropole Ost" },
+            { code: "39", label: "Ruhrmetropole West" },
+            { code: "91", label: "Ausland" }
+          ]
+        }
       };
 
       const selectGrid = document.getElementById("select-grid");
@@ -252,7 +301,7 @@
       const form = document.getElementById("segment-form");
       const resetButton = document.getElementById("reset");
 
-      function createSelect(field, options) {
+      function createSelect(field, options, useCodes, selectedValue) {
         const wrapper = document.createElement("div");
         const label = document.createElement("label");
         label.textContent = field;
@@ -267,10 +316,13 @@
         emptyOption.textContent = "-- bitte wählen --";
         select.appendChild(emptyOption);
 
-        options.forEach((value) => {
+        options.forEach(({ code, label: optionLabel }) => {
           const option = document.createElement("option");
-          option.value = value;
-          option.textContent = value;
+          option.value = useCodes ? code : optionLabel;
+          option.textContent = useCodes ? `${code} – ${optionLabel}` : optionLabel;
+          if (selectedValue && option.value === selectedValue) {
+            option.selected = true;
+          }
           select.appendChild(option);
         });
 
@@ -279,19 +331,61 @@
         return wrapper;
       }
 
-      function renderSelects() {
-        Object.entries(optionsByField).forEach(([field, options]) => {
-          selectGrid.appendChild(createSelect(field, options));
+      function createTextInput(field, placeholder, selectedValue) {
+        const wrapper = document.createElement("div");
+        const label = document.createElement("label");
+        label.textContent = field;
+        label.setAttribute("for", `field-${field}`);
+
+        const input = document.createElement("input");
+        input.type = "text";
+        input.id = `field-${field}`;
+        input.name = field;
+        input.placeholder = placeholder || "";
+        if (selectedValue) {
+          input.value = selectedValue;
+        }
+
+        wrapper.appendChild(label);
+        wrapper.appendChild(input);
+        return wrapper;
+      }
+
+      function renderSelects(selectedValues = {}) {
+        selectGrid.innerHTML = "";
+        const useCodes = document.getElementById("use-codes").checked;
+        Object.entries(fieldConfig).forEach(([field, config]) => {
+          if (config.type === "text") {
+            selectGrid.appendChild(
+              createTextInput(field, config.placeholder, selectedValues[field])
+            );
+            return;
+          }
+          let selectedValue = selectedValues[field];
+          if (selectedValue) {
+            const matchOption = config.options.find(
+              ({ code, label: optionLabel }) =>
+                (useCodes && optionLabel === selectedValue) ||
+                (!useCodes && code === selectedValue)
+            );
+            if (matchOption) {
+              selectedValue = useCodes ? matchOption.code : matchOption.label;
+            }
+          }
+          selectGrid.appendChild(
+            createSelect(field, config.options, useCodes, selectedValue)
+          );
         });
       }
 
       function buildPayload() {
         const payload = {};
-        Object.keys(optionsByField).forEach((field) => {
-          const select = document.getElementById(`field-${field}`);
-          if (select && select.value) {
-            payload[field] = select.value;
+        Object.entries(fieldConfig).forEach(([field, config]) => {
+          const input = document.getElementById(`field-${field}`);
+          if (!input || !input.value) {
+            return;
           }
+          payload[field] = input.value;
         });
         return payload;
       }
@@ -340,9 +434,23 @@
         responseEl.textContent = "Noch keine Anfrage gesendet.";
       }
 
+      const useCodesToggle = document.getElementById("use-codes");
+
+      function handleToggle() {
+        const selectedValues = {};
+        Object.keys(fieldConfig).forEach((field) => {
+          const input = document.getElementById(`field-${field}`);
+          if (input && input.value) {
+            selectedValues[field] = input.value;
+          }
+        });
+        renderSelects(selectedValues);
+      }
+
       renderSelects();
       form.addEventListener("submit", submitForm);
       resetButton.addEventListener("click", resetForm);
+      useCodesToggle.addEventListener("change", handleToggle);
     </script>
   </body>
 </html>
