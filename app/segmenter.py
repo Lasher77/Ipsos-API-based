@@ -23,13 +23,44 @@ def _compute_feature_value(
     member: dict[str, Any],
     rule: FeatureRule,
     case_insensitive: bool,
+    ruleset: RuleSet,
 ) -> int:
     raw_value = member.get(rule.input_field)
     normalized = normalize_value(raw_value, case_insensitive)
     if normalized is None:
         return 0
+    code_mapping = ruleset.code_mappings.get(rule.input_field)
+    if code_mapping:
+        mapped_value = code_mapping.get(normalized)
+        if mapped_value is not None:
+            normalized = mapped_value
+    alias_mapping = ruleset.value_aliases.get(rule.input_field)
+    if alias_mapping:
+        aliased_value = alias_mapping.get(normalized)
+        if aliased_value is not None:
+            normalized = aliased_value
+    if rule.input_field == "Mitgliedsdauer_Jahre":
+        normalized_duration = _normalize_membership_duration(normalized, case_insensitive)
+        if normalized_duration is not None:
+            normalized = normalized_duration
     match_value = normalize_value(rule.match_value, case_insensitive)
     return 1 if normalized == match_value else 0
+
+
+def _normalize_membership_duration(value: str, case_insensitive: bool) -> str | None:
+    try:
+        years = float(value.replace(",", "."))
+    except ValueError:
+        return None
+    if years <= 1:
+        label = "Mitgliedsdauer bis zu 1 Jahr"
+    elif 2 <= years <= 4:
+        label = "Mitgliedsdauer 2 bis 4 Jahre"
+    elif 5 <= years <= 9:
+        label = "Mitgliedsdauer 5 bis 9 Jahre"
+    else:
+        return None
+    return normalize_value(label, case_insensitive)
 
 
 def _round_scores(scores: dict[str, float], decimals: int = 4) -> dict[str, float]:
@@ -46,7 +77,7 @@ def score_member(
     matched_features: list[dict[str, Any]] = []
 
     for feature in ruleset.features:
-        value = _compute_feature_value(member, feature, ruleset.case_insensitive)
+        value = _compute_feature_value(member, feature, ruleset.case_insensitive, ruleset)
         if value == 1:
             for segment, coeff in feature.coefficients.items():
                 scores[segment] += coeff

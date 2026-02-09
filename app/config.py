@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="SEGMENTER_", env_file=".env", extra="ignore")
 
     rules_path: Path = Field(default=Path("rules/bvmw_typing_tool_rules_v2.json"))
+    code_list_path: Path = Field(default=Path("rules/code_lists.json"))
     case_insensitive: bool = Field(default=False)
 
 
